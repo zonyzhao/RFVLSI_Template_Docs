@@ -1,0 +1,102 @@
+\documentclass[rfvlsi_template_jrnl.tex]{subfiles}
+\begin{document}
+
+\section{Introduction}
+% The very first letter is a 2 line initial drop letter followed
+% by the rest of the first word in caps.
+% 
+% form to use if the first word consists of a single letter:
+% \IEEEPARstart{A}{demo} file is ....
+% 
+% form to use if you need the single drop letter followed by
+% normal text (unknown if ever used by IEEE):
+% \IEEEPARstart{A}{}demo file is ....
+% 
+% Some journals put the first two words in caps:
+% \IEEEPARstart{T}{his demo} file is ....
+% 
+% Here we have the typical use of a "T" for an initial drop letter
+% and "HIS" in caps to complete the first word.
+
+%Based on the discussions in Section II, we categorize those architectures according to their idealistic design concepts. 
+
+\IEEEPARstart{T}{his} document serves as a starting template for writing IEEE-trans. paper in NCTU, RFVLIS-Lab.
+
+\subsection{First Time Usa of Latex}
+
+\begin{enumerate}
+  \item Download Miktex.
+  \item \textit{Use} \emph{package} \textsc{manager} \uppercase{to} install the following packages:
+	\begin{itemize}
+		\item All IEEE transactions/bibtex packages
+		\item \textbf{Textcomp}: support some symbols.
+		\item \textbf{amsmath}: support some maths. 
+		\item \textbf{Subfiles}: support independent compilable subfiles .tex structure as used in this template. 
+		\item \textbf{Dblfloatfix}: fixes double column figures ordering problems.
+	\end{itemize}
+\end{enumerate}
+
+\subsection{Specialized Semiconductor Process}
+
+\begin{itemize}
+\item[1] Some forwords about why needs a rectifier?.
+\item[2] Focus on introduction of several representative topologies.
+\item[3] Bring up the the later sections.
+\end{itemize}
+
+\subsection{Equation Templates }
+
+In all of the following approaches, a gate DC bias $V_{g,bias}$ is introduced as in Eq. XXXX.
+
+\begin{equation}
+\label{NStageRectVout}
+V_{out}=N⋅(V_{RF,Peak}-V_{th}+V_{gs,bias}).
+\end{equation}
+
+\subsection{Table Templates}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Summary table for UHF RF-to-DC rectifiers.
+\begin{table*}[!t]
+\centering
+\caption{Summary of the UHF RF-to-DC rectifier performance.}
+\label{table_UHF_performance}
+\centering
+\begin{IEEEeqnarraybox}[\IEEEeqnarraystrutmode\IEEEeqnarraystrutsizeadd{2pt}{0pt}][b]{v/t/V/t/v/t/v/t/v/t/v}
+\IEEEeqnarrayrulerow\\
+&\textbf{Specification}&&\textbf{This work}&& \textbf{A}&&\textbf{B}&&\textbf{C}&\\
+\IEEEeqnarraydblrulerow\\
+&{Frequency(MHz)}&&900&& 950&&915&&915&\\
+\IEEEeqnarrayrulerow\\
+
+&{Technology}&&\parbox{20ex}{\raggedright 0.28$\mu$m thick-gate oxide CMOS in 65nm process}&& 0.35$\mu$m&&90nm&&0.2$\mu$m&\IEEEeqnarraystrutsizeadd{8pt}{8pt}\\
+\IEEEeqnarrayrulerow\\
+&{\parbox{19ex}{PCE@Output power}}&&27.97\%@19.3mW&&15.1\%@0.6$\mu$W&&11\%@13.1$\mu$W&&71.5\%@0.285mW&\IEEEeqnarraystrutsizeadd{4pt}{4pt}\\
+\IEEEeqnarrayrulerow\\
+&{\parbox{19ex}{Number of stage\\/ type of the rectifier}}&&5/half-wave&&\parbox{15ex}{1 (six stacks)\\/ full-wave}&&17/half-wave&&1/full-wave&\IEEEeqnarraystrutsizeadd{4pt}{4pt}\\
+\IEEEeqnarrayrulerow\\
+&{Chip area}	&&0.442mm$^2$&&0.104mm$^2$&&0.19mm$^2$&&0.133mm$^2$&\\
+\IEEEeqnarrayrulerow%
+\end{IEEEeqnarraybox}
+\end{table*}
+
+%Note:
+% \IEEEeqnarrayrulerow, \IEEEeqnarrayrulerow[rule_thickness] 
+% \IEEEeqnarraydblrulerow , \IEEEeqnarraydblrulerow[rule_thickness][spacing]
+% \IEEEeqnarraydblrulerowcut, \IEEEeqnarraydblrulerowcut[rule_thickness][spacing]
+% Adding spaces above/below each row:  \IEEEeqnarraystrutsizeadd{4pt}{4pt}
+% \raggedright,\raggedleft
+%\IEEEpubidadjcol
+
+\subsection{Inductive Peaking Approach}
+
+
+
+\subsection{Other Approaches}
+
+% You must have at least 2 lines in the paragraph with the drop letter
+% (should never be an issue)
+
+
+\end{document}
+
