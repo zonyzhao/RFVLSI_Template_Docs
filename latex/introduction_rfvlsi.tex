@@ -54,7 +54,41 @@ V_{out}=N⋅(V_{RF,Peak}-V_{th}+V_{gs,bias}).
 \end{equation}
 
 \subsection{Table Templates}
+\begin{itemize}
+	\item use \{v/t/v/t/\} to control columns and column separating rule(line). Note that the separating rule are also treated as a column. 
+	\item use \newline  \textbf{ \textbackslash IEEEeqnarrayrulerow, \textbackslash IEEEeqnarrayrulerow[rule\_thickness]}, \textbf{ \textbackslash IEEEeqnarraydblrulerow , \textbackslash IEEEeqnarraydblrulerow[rule\_thickness][spacing]}, \textbf{ \textbackslash IEEEeqnarraydblrulerowcut, \textbackslash IEEEeqnarraydblrulerowcut[rule\_thickness][spacing]} to control horizontal separating rules. Use \textbackslash IEEEeqnarraystrutsizeadd\{4pt\}\{4pt\} in the last hidden column in each row to add spaces above/below each row:  \textbf{\textbackslash IEEEeqnarraystrutsizeadd\{4pt\}\{4pt\}}
+	\item Use \textbf{\textbackslash parbox\{18ex\}\{\}\}} to control width.
+	\item Use \textbf{\textbackslash raggedright}, and \textbf{\textbackslash raggedleft} to adjust left/right alignment inside each cell.
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Summary table for UHF RF-to-DC rectifiers.
+\begin{table}[!t]
+\centering
+\caption{Definition of Sensitivity and Power Conversion Efficiency.}
+\label{table_definition}
+\centering
+\begin{IEEEeqnarraybox}[\IEEEeqnarraystrutmode\IEEEeqnarraystrutsizeadd{2pt}{0pt}][b]{v/t/v/t/v}
+\IEEEeqnarraydblrulerow\\
+&\textbf{Terminology}&&\textbf{Definition}&\\
+\IEEEeqnarrayrulerow\\
+&\textit{Power Sensitivity}&&{\parbox{40ex}{The minimum input power required to achieve a specified DC output current, or voltage, or both.}}& \IEEEeqnarraystrutsizeadd{8pt}{8pt}\\
+\IEEEeqnarrayrulerow\\
+&\textit{Voltage Sensitivity}&&{\parbox{40ex}{The minimum input voltage required to achieve a specified DC output current, or voltage, or both.}}& \IEEEeqnarraystrutsizeadd{8pt}{8pt}\\
+\IEEEeqnarrayrulerow\\
+&{\parbox{18ex}{\textit{Power Conversion Efficiency (PCE)}}}&&{$PCE\equiv \frac{\text{Output DC power}}{\text{Input RF power}}$} &\IEEEeqnarraystrutsizeadd{4pt}{4pt}\\
+\IEEEeqnarrayrulerow
+\end{IEEEeqnarraybox}
+\end{table}
 
+%Note:
+% \IEEEeqnarrayrulerow, \IEEEeqnarrayrulerow[rule_thickness] 
+% \IEEEeqnarraydblrulerow , \IEEEeqnarraydblrulerow[rule_thickness][spacing]
+% \IEEEeqnarraydblrulerowcut, \IEEEeqnarraydblrulerowcut[rule_thickness][spacing]
+% Adding spaces above/below each row:  \IEEEeqnarraystrutsizeadd{4pt}{4pt}
+% Use {\parbox{18ex}{}} to control width.
+% \raggedright,\raggedleft
+%\IEEEpubidadjcol
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Summary table for UHF RF-to-DC rectifiers.
 \begin{table*}[!t]
