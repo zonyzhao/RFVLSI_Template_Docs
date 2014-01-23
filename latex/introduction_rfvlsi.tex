@@ -26,23 +26,23 @@
 
 \begin{enumerate}
   \item Download Miktex, and open package manager. Remember to synchronize package list. 
-  \item \textit{Use} \emph{package} \textsc{manager} \uppercase{to} install the following packages:
+  \item \textit{Use} \emph{package} \textsc{manager} \uppercase{to} install the following packages: \textbf{please note the different fonts in this paragraph.)}
 	\begin{itemize}
 		\item All IEEE transactions/bibtex packages. (the \textbf{ieeetran}, and \textbf{biblatex-ieee} package)
 		\item \textbf{Textcomp}: support some symbols. (the \textbf{was} package)
 		\item \textbf{amsmath}: support some maths. 
-		\item \textbf{Subfiles}: support independent compilable subfiles .tex structure as used in this template. 
+		\item \textbf{subfiles}: support independent compilable subfiles .tex structure as used in this template. 
 		\item \textbf{dblfloatfix}: fixes double column figures ordering problems. (\textbf{dblfloatfix} package.)
 	\end{itemize}
 \end{enumerate}
 
-\subsection{Specialized Semiconductor Process}
+\subsection{Useful Commands}
 
-\begin{itemize}
-\item[1] Some forwords about why needs a rectifier?.
-\item[2] Focus on introduction of several representative topologies.
-\item[3] Bring up the the later sections.
-\end{itemize}
+\begin{enumerate}
+\item Use: \textbf{\textbackslash textbackslash}: to show \textbackslash
+\item Use: \textbf{\textbackslash label\{aaaa\}} inside figure, table, equations, or floats: and use it later with \textbf{\textbackslash ref\{aaaa\}}
+\item Use: \textbf{\textbackslash cite\{paperXXX\}} to cite the paper in the *.bib file.  For the item content of *.bib file, please go to IEEEexplore and click download citation with BibTex format.
+\end{enumerate}
 
 \subsection{Equation Templates }
 
@@ -53,12 +53,19 @@ In all of the following approaches, a gate DC bias $V_{g,bias}$ is introduced as
 V_{out}=N⋅(V_{RF,Peak}-V_{th}+V_{gs,bias}).
 \end{equation}
 
+Below is a \textbf{IEEEeqnarray} example. Note, it is a 2 by 2 array for alignment.
+\begin{IEEEeqnarray}{Rl}
+V_G&=A_v\cdot V_{in}-(V_{th}-V_{ITC,bias})\IEEEnonumber\\
+&=A_v\cdot \left ( V_{in}- \frac{V_{th}-V_{ITC,bias}}{A_v}\right).
+\label{eqn:IGRVgEquation}
+\end{IEEEeqnarray}
+
 \subsection{Table Templates}
 \begin{itemize}
 	\item use \{v/t/v/t/\} to control columns and column separating rule(line). Note that the separating rule are also treated as a column. 
 	\item use \newline  \textbf{ \textbackslash IEEEeqnarrayrulerow, \textbackslash IEEEeqnarrayrulerow[rule\_thickness]}, \textbf{ \textbackslash IEEEeqnarraydblrulerow , \textbackslash IEEEeqnarraydblrulerow[rule\_thickness][spacing]}, \textbf{ \textbackslash IEEEeqnarraydblrulerowcut, \textbackslash IEEEeqnarraydblrulerowcut[rule\_thickness][spacing]} to control horizontal separating rules. Use \textbackslash IEEEeqnarraystrutsizeadd\{4pt\}\{4pt\} in the last hidden column in each row to add spaces above/below each row:  \textbf{\textbackslash IEEEeqnarraystrutsizeadd\{4pt\}\{4pt\}}
 	\item Use \textbf{\textbackslash parbox\{18ex\}\{\}\}} to control width.
-	\item Use \textbf{\textbackslash raggedright}, and \textbf{\textbackslash raggedleft} to adjust left/right alignment inside each cell.
+	\item Use \textbf{\textbackslash raggedright}, \textbf{\textbackslash raggedleft}, and \textbf{\centering} to adjust left/right alignment inside each cell.
 \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Summary table for UHF RF-to-DC rectifiers.
@@ -122,12 +129,40 @@ V_{out}=N⋅(V_{RF,Peak}-V_{th}+V_{gs,bias}).
 % \raggedright,\raggedleft
 %\IEEEpubidadjcol
 
-\subsection{Inductive Peaking Approach}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Comparison table for mmWave RF-to-DC rectifiers.
+\begin{table}[!t]
+\centering
+\caption{Summary of the mmWave RF-to-DC rectifier performance.}
+\centering
+\begin{IEEEeqnarraybox}[\IEEEeqnarraystrutmode\IEEEeqnarraystrutsizeadd{2pt}{0pt}][b]{v/t/V/t/v/t/v/t/v}
+\IEEEeqnarraydblrulerow\\
+&&&\textbf{This Work}&&\cite{60GHz_RFID}&& \cite{Gao71GHz2013}&\\
+\IEEEeqnarraydblrulerow\\
+&Technology&&65nm&&90nm&& 65nm&\\
+\IEEEeqnarrayrulerow\\
+&\parbox{17ex}{\centering Number of\\ Stages}&&7&&10&&3&\IEEEeqnarraystrutsizeadd{4pt}{4pt}\\
+\IEEEeqnarrayrulerow\\
+&\parbox{17ex}{\centering Operating Frequency}&&46-56GHz&&45GHz&& 70-72GHz&\IEEEeqnarraystrutsizeadd{4pt}{4pt}\\
+\IEEEeqnarrayrulerow\\
+&\parbox{17ex}{Peak Efficiency}&&20.65\%&&0.5\%&& 8\%&\\
+\IEEEeqnarrayrulerow\\
+&Input Sensitivity&&\parbox{17ex}{\centering -6dBm\\@2$\mu$A, 1.2V}&&2dBm&& 5dBm&\IEEEeqnarraystrutsizeadd{4pt}{4pt}\\
+\IEEEeqnarrayrulerow%
+\end{IEEEeqnarraybox}
+\label{table_mmWave_performance}
+\end{table}
+%Note:
+% \IEEEeqnarrayrulerow, \IEEEeqnarrayrulerow[rule_thickness] 
+% \IEEEeqnarraydblrulerow , \IEEEeqnarraydblrulerow[rule_thickness][spacing]
+% \IEEEeqnarraydblrulerowcut, \IEEEeqnarraydblrulerowcut[rule_thickness][spacing]
+% Adding spaces above/below each row:  \IEEEeqnarraystrutsizeadd{4pt}{4pt}
 
 
-
-\subsection{Other Approaches}
-
+\subsection{Put your own subsections.}
+\subsubsection{Put your own subsubsections1.}
+\subsubsection{Put your own subsubsections2.}
 % You must have at least 2 lines in the paragraph with the drop letter
 % (should never be an issue)
 
