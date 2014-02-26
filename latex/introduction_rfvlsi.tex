@@ -20,13 +20,13 @@
 
 %Based on the discussions in Section II, we categorize those architectures according to their idealistic design concepts. 
 
-\IEEEPARstart{T}{his} document serves as a starting template for writing IEEE-trans. paper in NCTU, RFVLIS-Lab.
+\IEEEPARstart{T}{his} document serves as a starting template for writing IEEE-trans. paper in NCTU, RFVLSI-Lab.
 
-\subsection{First Time Usa of Latex}
+\subsection{First Time Use of Latex}
 
 \begin{enumerate}
   \item Download Miktex, and open package manager. Remember to synchronize package list. 
-  \item \textit{Use} \emph{package} \textsc{manager} \uppercase{to} install the following packages: \textbf{please note the different fonts in this paragraph.)}
+  \item \textit{Use} \emph{package} \textsc{manager} \uppercase{to} install the following packages: \textbf{(Please note the different fonts in this paragraph on purpose. Please read source files for commands)}
 	\begin{itemize}
 		\item All IEEE transactions/bibtex packages. (the \textbf{ieeetran}, and \textbf{biblatex-ieee} package)
 		\item \textbf{Textcomp}: support some symbols. (the \textbf{was} package)
@@ -43,6 +43,13 @@
 \item Use: \textbf{\textbackslash label\{aaaa\}} inside figure, table, equations, or floats: and use it later with \textbf{\textbackslash ref\{aaaa\}}
 \item Use: \textbf{\textbackslash cite\{paperXXX\}} to cite the paper in the *.bib file.  For the item content of *.bib file, please go to IEEEexplore and click download citation with BibTex format.
 \end{enumerate}
+Please look for useful formats in this document, and read their source files directly.
+\begin{figure}[t]
+\centering
+\includegraphics [width=3.6in]{Fig_schematic}
+\caption{The simplified schematic of the 60 GHz power amplifier.}
+\label{fig:schematic}
+\end{figure}
 
 \subsection{Equation Templates }
 
@@ -166,6 +173,13 @@ V_G&=A_v\cdot V_{in}-(V_{th}-V_{ITC,bias})\IEEEnonumber\\
 % You must have at least 2 lines in the paragraph with the drop letter
 % (should never be an issue)
 
+\subsection{Online Resources.}
+There are many on-line resources for IEEE journal laTex format.  
+Please read: \textbf{"How to Use the IEEEtran LATEX Class"} by Michael Shell.
+Please read: \textbf{"How to Use the IEEEtran BibTex"} also by Michael Shell.
+Please also look for laTex wikiBook for useful tutorials.
+% You must have at least 2 lines in the paragraph with the drop letter
+% (should never be an issue)
 
 \end{document}
 
