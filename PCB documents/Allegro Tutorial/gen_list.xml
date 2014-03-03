@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pdfsam_saved_jobs version="1.0.3" savedate="25-二月-2013">
+  <plugin class="org.pdfsam.guiclient.gui.panels.JSettingsPanel" name="設定"/>
+  <plugin class="org.pdfsam.plugin.merge.GUI.MergeMainGUI" name="合併/摘錄">
+    <filelist>
+      <file name="C:\Users\Wang\Desktop\RFLab\PCB\Pad Designer.pdf" pageselection="All"/>
+      <file name="C:\Users\Wang\Desktop\RFLab\PCB\Package Symbol.pdf" pageselection="All"/>
+      <file name="C:\Users\Wang\Desktop\RFLab\PCB\OrCAD Capture.pdf" pageselection="All"/>
+      <file name="C:\Users\Wang\Desktop\RFLab\PCB\Allegro PCB.pdf" pageselection="All"/>
+      <file name="C:\Users\Wang\Desktop\RFLab\PCB\Placement.pdf" pageselection="All"/>
+      <file name="C:\Users\Wang\Desktop\RFLab\PCB\Routing.pdf" pageselection="All"/>
+      <file name="C:\Users\Wang\Desktop\RFLab\PCB\Finalizing PCB.pdf" pageselection="All"/>
+    </filelist>
+    <destination value="C:\Users\Wang\Desktop\RFLab\PCB\PCB.pdf"/>
+    <overwrite value="true"/>
+    <merge_type value="false"/>
+    <compressed value="true"/>
+    <pdfversion value="5"/>
+  </plugin>
+  <plugin class="org.pdfsam.plugin.split.GUI.SplitMainGUI" name="分割">
+    <source/>
+    <split_option/>
+    <npages value=""/>
+    <thispage value=""/>
+    <splitsize value=""/>
+    <destination value=""/>
+    <prefix value="pdfsam_"/>
+    <overwrite value="true"/>
+    <compressed value="true"/>
+    <pdfversion value="5"/>
+  </plugin>
+  <plugin class="org.pdfsam.guiclient.gui.panels.JInfoPanel" name="關於"/>
+</pdfsam_saved_jobs>
