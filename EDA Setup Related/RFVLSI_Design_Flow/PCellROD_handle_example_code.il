@@ -28,7 +28,7 @@ let((netx Pitch num_Horz_Vias num_Vert_Vias len_Horz_Edge len_Vert_Edge m PP_ext
 	rodId = rodGetObj( "" pcCellView)
 	rodCreateHandle( ?name "SepPoint"
 		?type "point"
-		?value Sep+1.0:0  
+		?value rodSubPoints(Sep+1.0:0 rodId~>lowerLeft) 
 		?rodObj rodId
 	) ; use rodCreateHandle to create a "reference point" named "SepPoint" for the current pCell.. 
 	; The reference point is equal to (Sep+1.0:0) in current pCell Coordinate System.
@@ -47,7 +47,7 @@ let((netx Pitch num_Horz_Vias num_Vert_Vias len_Horz_Edge len_Vert_Edge m PP_ext
 	
 	master = dbOpenCellViewByType(pcCellView~>lib "ROD1" "layout")	;get the master view of "vias"
 	
-	dbCreateParamInst(pcCellView master "rod1" 0:0 "R0" 	1
+	dbCreateParamInst(pcCellView master "rod1" 1:1 "R0" 	1
 		list(list("Sep"  "float" Sep2)) ;passing to lower level.
 	)
 	
@@ -58,7 +58,8 @@ let((netx Pitch num_Horz_Vias num_Vert_Vias len_Horz_Edge len_Vert_Edge m PP_ext
         ?origin rodGetObj( "rod1" pcCellView)~>SepPoint ;retrieve reference point (ROD handle from low level)
         ?cvId   pcCellView
         );  
-
+	printf("SepPoint:%L" rodGetObj( "rod1" pcCellView)~>SepPoint)
+	printf("lowerLeft:%L" rodGetObj( "rod1" pcCellView)~>lowerLeft)
 )/*end of let*/
 )/*end of pcDefinePCell*/
 
