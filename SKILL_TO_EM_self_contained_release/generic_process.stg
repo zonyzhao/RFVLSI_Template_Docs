@@ -1,0 +1,94 @@
+print_generic_DIE(content)::=<<
+
+print_DIE(originX, originY, Width, Length, priority)::=\<\<
+
+rfvlsi_print_DIE=True
+<content; separator="\n">
+oProject.Save
+
+
+\>>
+>>
+print_generic_dielectric_layer(name, relpermitivity, conductivity, height, thickness, priority)::=<<
+CDielectric "<name>", <relpermitivity>, 1, <conductivity>, \<originX>, \<originY>, <height>, \<Width>, \<Length>, <thickness>, \<priority>
+>>
+
+print_generic_define_metals(content)::=<<
+print_DefineAllMetals()::=\<\<
+<content;separator="\n">
+oProject.Save
+
+\>>
+>>
+print_generic_define_a_new_metal(name, conductivity)::=<<
+DefineNewMetal "<name>",<conductivity>
+rfvlsi_totoal_<name>_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+>>
+print_generic_MetalVia_func(content)::=<<
+
+print_DefineMetalViaFunctions()::=\<\<
+<content;separator="\n\n">
+\>>
+
+>>
+print_generic_Metal_func(func_name, content)::=<<
+Function <func_name>(iLayer)
+	Select Case iLayer
+            <content;separator="\n">
+	End Select
+End Function
+>>
+print_generic_Metal_case(material_name, func_name, index, returned_value)::=<<
+Case <index>	'<material_name>
+    <func_name>=<returned_value>
+>>
+print_Metal_Count_Sub(func_name,content)::=<<
+Sub <func_name>(iLayer)
+	Select Case iLayer
+            <content;separator="\n">
+	End Select
+End Sub
+>>
+print_Metal_Count_case(material_name,index)::=<<
+Case <index>	'<material_name>
+    rfvlsi_totoal_<material_name>_ModelerObjects=rfvlsi_totoal_<material_name>_ModelerObjects+1
+>>
+print_generic_metal_merge(content)::=<<
+print_metal_merge()::=\<\<
+'Merging metals & Vias
+<content; separator="\n">
+oProject.Save
+
+\>>
+
+>>
+print_generic_single_merge(layer_prefix)::=<<
+If (rfvlsi_totoal_<layer_prefix>_ModelerObjects>=2) Then' If there are more than two objects of <layer_prefix> , we merge them.
+    A = oEditor.GetMatchedObjectName("<layer_prefix>*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+>>
+print_generic_tooling(content)::=<<
+print_tooling()::=\<\<
+
+If (rfvlsi_print_DIE) Then
+    'Substract Vias/Metals from Deielectric
+    <content; separator="\n\n">
+    oProject.Save
+End If
+
+\>>
+
+>>
+
+print_generic_single_metal_dielectrics_tooling(metal_layer, content)::=<<
+If (rfvlsi_totoal_<metal_layer>_ModelerObjects>=1) Then
+    A = oEditor.GetMatchedObjectName("<metal_layer>*")
+    <content; separator="\n">
+End If    
+>>
+print_generic_dielectric_tooling(dielectric_layer)::=<<
+oEditor.Subtract Array("NAME:Selections", "Blank Parts:=", "<dielectric_layer>", "Tool Parts:=", Join(A,",")), Array("NAME:SubtractParameters", "KeepOriginals:=", true)
+>>

@@ -1,0 +1,334 @@
+print_header_process_dependent()::=<<
+'This part is translated through skill-to-EM translator from *.il
+rfvlsi_maskgrid=0.005
+
+Function ViaWidthVec(iLayer)
+	Select Case iLayer
+		Case -1	'CO
+			ViaWidthVec=0.09
+		Case 0	'VIA1
+			ViaWidthVec=0.1
+		Case 1	'VIA2
+			ViaWidthVec=0.1
+		Case 2	'VIA3
+			ViaWidthVec=0.1
+		Case 3	'VIA4
+			ViaWidthVec=0.1
+		Case 4	'VIA5
+			ViaWidthVec=0.1
+		Case 5	'VIA6
+			ViaWidthVec=0.1
+		Case 6	'VIA7
+			ViaWidthVec=0.36
+		Case 7 	'VIA8
+			ViaWidthVec=0.36
+		Case Else	'RV
+			ViaWidthVec=3.0
+	End Select
+End Function
+
+Function ViaSpacingVec(iLayer)
+	Select Case iLayer
+		Case -1	'CO
+			ViaSpacingVec=0.14
+		Case 0	'VIA1
+			ViaSpacingVec=0.13
+		Case 1	'VIA2
+			ViaSpacingVec=0.13
+		Case 2	'VIA3
+			ViaSpacingVec=0.13
+		Case 3	'VIA4
+			ViaSpacingVec=0.13
+		Case 4	'VIA5
+			ViaSpacingVec=0.13
+		Case 5	'VIA6
+			ViaSpacingVec=0.13
+		Case 6	'VIA7
+			ViaSpacingVec=0.54
+		Case 7 	'VIA8
+			ViaSpacingVec=0.54
+		Case Else	'RV
+			ViaSpacingVec=3.0
+	End Select
+End Function
+
+Function ViaEncVec(iLayer)
+	Select Case iLayer
+		Case -1	'CO
+			ViaEncVec=0.04
+		Case 0	'VIA1
+			ViaEncVec=0.04
+		Case 1	'VIA2
+			ViaEncVec=0.04
+		Case 2	'VIA3
+			ViaEncVec=0.04
+		Case 3	'VIA4
+			ViaEncVec=0.04
+		Case 4	'VIA5
+			ViaEncVec=0.04
+		Case 5	'VIA6
+			ViaEncVec=0.04
+		Case 6	'VIA7
+			ViaEncVec=0.08
+		Case 7 	'VIA8
+			ViaEncVec=0.3
+		Case Else	'RV
+			ViaEncVec=1.5
+	End Select
+End Function
+
+Function MetalSingularEdgeFillVec(m)
+	Select Case m
+		Case 0, 1, 2, 3, 4, 5, 6
+			returnVal = 0.5
+		Case 7
+			returnVal = 0.5
+		Case 8
+			returnVal = 2.0
+		Case true
+			returnVal = 3.0
+	End Select
+	MetalSingularEdgeFillVec = returnVal
+End Function
+
+Function drc_entry(m)
+	Select Case m
+		Case "co_diff"
+			returnVal = 0.155
+		Case "PO_S_4"
+			returnVal = 0.05
+		Case "co_diff_nch"
+			returnVal = 0.115
+		Case "co_diff_nch_25"
+			returnVal = 0.135
+		Case true
+			returnVal = 0.2
+	End Select
+	drc_entry = returnVal
+End Function
+
+Function CoDiff(m)
+	Select Case m
+		Case "nch"
+			returnVal = 0.115
+		Case "pch"
+			returnVal = 0.115
+		Case "nch_lvt"
+			returnVal = 0.115
+		Case "nch_hvt"
+			returnVal = 0.115
+		Case "nch_25"
+			returnVal = 0.135
+		Case "pch_25"
+			returnVal = 0.31
+		Case "pch_lvt"
+			returnVal = 0.2
+		Case true
+			returnVal = 0.2
+	End Select
+	CoDiff = returnVal
+End Function
+
+Function DiffWidth(m)
+	Select Case m
+		Case "nch"
+			returnVal = 0.2
+		Case "pch"
+			returnVal = 0.2
+		Case "nch_lvt"
+			returnVal = 0.2
+		Case "nch_hvt"
+			returnVal = 0.2
+		Case "nch_25"
+			returnVal = 0.31
+		Case "pch_25"
+			returnVal = 0.31
+		Case "pch_lvt"
+			returnVal = 0.2
+		Case true
+			returnVal = 0.2
+	End Select
+	DiffWidth = returnVal
+End Function
+
+
+Function ImpbPP(m)
+	Select Case m
+		Case "nch"
+			returnVal = true
+		Case "pch"
+			returnVal = false
+		Case "nch_lvt"
+			returnVal = true
+		Case "nch_hvt"
+			returnVal = true
+		Case "nch_25"
+			returnVal = true
+		Case "pch_25"
+			returnVal = false
+		Case "pch_lvt"
+			returnVal = false
+		Case true
+			returnVal = true
+	End Select
+	ImpbPP = returnVal
+End Function
+
+Function MOSYSpacing(m)
+	Select Case m
+		Case "nch"
+			returnVal = 0.68
+		Case "pch"
+			returnVal = 0.68
+		Case "nch_lvt"
+			returnVal = 0.68
+		Case "nch_hvt"
+			returnVal = 0.68
+		Case "nch_25"
+			returnVal = 0.31
+		Case "pch_lvt"
+			returnVal = 0.68
+		Case true
+			returnVal = 0.2
+	End Select
+	MOSYSpacing = returnVal
+End Function
+
+Function OriginOffset(m)
+	Select Case m
+		Case "nch"
+			returnVal = 0.1
+		Case "pch"
+			returnVal = 0.1
+		Case "nch_lvt"
+			returnVal = 0.1
+		Case "nch_hvt"
+			returnVal = 0.1
+		Case "nch_25"
+			returnVal = 0.155
+		Case "pch_lvt"
+			returnVal = 0.1
+		Case true
+			returnVal = 0.1
+	End Select
+	OriginOffset = returnVal
+End Function
+
+Function MinMetWidth(m)
+	Select Case m
+		Case 0
+			returnVal = 0.09
+		Case 1, 2, 3, 4, 5, 6, 7
+			returnVal = 0.1
+		Case 8, 9
+			returnVal = 2.0
+		Case true
+			returnVal = 3.0
+	End Select
+	MinMetWidth = returnVal
+End Function
+
+Function ViaSpacingVec(m)
+	Select Case m
+		Case (-1)
+			returnVal = 0.14
+		Case 0, 1, 2, 3, 4, 5
+			returnVal = 0.13
+		Case 6, 7
+			returnVal = 0.54
+		Case true
+			returnVal = 3.0
+	End Select
+	ViaSpacingVec = returnVal
+End Function
+
+Function MetSpacingVec(m)
+	Select Case m
+		Case 1
+			returnVal = 0.09
+		Case 2, 3, 4, 5, 6, 7
+			returnVal = 0.1
+		Case 8, 9
+			returnVal = 0.54
+		Case true
+			returnVal = 3.0
+	End Select
+	MetSpacingVec = returnVal
+End Function
+
+Function ViaOneRowSpacingVec(m)
+	Select Case m
+		Case (-1)
+			returnVal = 0.11
+		Case 0, 1, 2, 3, 4, 5
+			returnVal = 0.1
+		Case 6, 7
+			returnVal = 0.34
+		Case true
+			returnVal = 3.0
+	End Select
+	ViaOneRowSpacingVec = returnVal
+End Function
+
+Function ViaEncVec(m)
+	Select Case m
+		Case (-1), 0, 1, 2, 3, 4, 5
+			returnVal = 0.04
+		Case 6
+			returnVal = 0.08
+		Case 7
+			returnVal = 0.3
+		Case true
+			returnVal = 1.5
+	End Select
+	ViaEncVec = returnVal
+End Function
+
+Function ViaMinEncWidthVec(m, bIsLast)
+
+	If (bIsLast) Then
+		Select Case m
+			Case 0
+				returnVal = 0.1
+			Case 1, 2, 3, 4, 5, 6
+				returnVal = 0.1
+			Case 7
+				returnVal = 0.4
+			Case 8
+				returnVal = 2.0
+			Case true
+				returnVal = 4.5
+		End Select
+	Else
+		Select Case m
+			Case 0
+				returnVal = 0.1
+			Case 1, 2, 3, 4, 5
+				returnVal = 0.1
+			Case 6, 7
+				returnVal = 0.4
+			Case 7
+				returnVal = 0.4
+			Case true
+				returnVal = 4.5
+		End Select
+	End If
+
+	ViaMinEncWidthVec = returnVal
+End Function
+
+Function ViaDiagonalEncVec(m)
+	Select Case m
+		Case 0, 1, 2, 3, 4, 5
+			returnVal = 0.06
+		Case 6
+			returnVal = 0.115
+		Case 7
+			returnVal = 0.45
+		Case true
+			returnVal = 2.12
+	End Select
+	ViaDiagonalEncVec = returnVal
+End Function
+
+>>

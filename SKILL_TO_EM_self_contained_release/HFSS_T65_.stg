@@ -1,0 +1,877 @@
+print_header_process_dependent()::=<<
+'This part is translated through skill-to-EM translator from *.il
+rfvlsi_maskgrid=0.005
+
+Function ViaWidthVec(iLayer)
+	Select Case iLayer
+		Case -1	'CO
+			ViaWidthVec=0.09
+		Case 0	'VIA1
+			ViaWidthVec=0.1
+		Case 1	'VIA2
+			ViaWidthVec=0.1
+		Case 2	'VIA3
+			ViaWidthVec=0.1
+		Case 3	'VIA4
+			ViaWidthVec=0.1
+		Case 4	'VIA5
+			ViaWidthVec=0.1
+		Case 5	'VIA6
+			ViaWidthVec=0.1
+		Case 6	'VIA7
+			ViaWidthVec=0.36
+		Case 7 	'VIA8
+			ViaWidthVec=0.36
+		Case Else	'RV
+			ViaWidthVec=3.0
+	End Select
+End Function
+
+Function ViaSpacingVec(iLayer)
+	Select Case iLayer
+		Case -1	'CO
+			ViaSpacingVec=0.14
+		Case 0	'VIA1
+			ViaSpacingVec=0.13
+		Case 1	'VIA2
+			ViaSpacingVec=0.13
+		Case 2	'VIA3
+			ViaSpacingVec=0.13
+		Case 3	'VIA4
+			ViaSpacingVec=0.13
+		Case 4	'VIA5
+			ViaSpacingVec=0.13
+		Case 5	'VIA6
+			ViaSpacingVec=0.13
+		Case 6	'VIA7
+			ViaSpacingVec=0.54
+		Case 7 	'VIA8
+			ViaSpacingVec=0.54
+		Case Else	'RV
+			ViaSpacingVec=3.0
+	End Select
+End Function
+
+Function ViaEncVec(iLayer)
+	Select Case iLayer
+		Case -1	'CO
+			ViaEncVec=0.04
+		Case 0	'VIA1
+			ViaEncVec=0.04
+		Case 1	'VIA2
+			ViaEncVec=0.04
+		Case 2	'VIA3
+			ViaEncVec=0.04
+		Case 3	'VIA4
+			ViaEncVec=0.04
+		Case 4	'VIA5
+			ViaEncVec=0.04
+		Case 5	'VIA6
+			ViaEncVec=0.04
+		Case 6	'VIA7
+			ViaEncVec=0.08
+		Case 7 	'VIA8
+			ViaEncVec=0.3
+		Case Else	'RV
+			ViaEncVec=1.5
+	End Select
+End Function
+
+Function MetalSingularEdgeFillVec(m)
+	Select Case m
+		Case 0, 1, 2, 3, 4, 5, 6
+			returnVal = 0.5
+		Case 7
+			returnVal = 0.5
+		Case 8
+			returnVal = 2.0
+		Case true
+			returnVal = 3.0
+	End Select
+	MetalSingularEdgeFillVec = returnVal
+End Function
+
+Function drc_entry(m)
+	Select Case m
+		Case "co_diff"
+			returnVal = 0.155
+		Case "PO_S_4"
+			returnVal = 0.05
+		Case "co_diff_nch"
+			returnVal = 0.115
+		Case "co_diff_nch_25"
+			returnVal = 0.135
+		Case true
+			returnVal = 0.2
+	End Select
+	drc_entry = returnVal
+End Function
+
+Function CoDiff(m)
+	Select Case m
+		Case "nch"
+			returnVal = 0.115
+		Case "pch"
+			returnVal = 0.115
+		Case "nch_lvt"
+			returnVal = 0.115
+		Case "nch_hvt"
+			returnVal = 0.115
+		Case "nch_25"
+			returnVal = 0.135
+		Case "pch_25"
+			returnVal = 0.31
+		Case "pch_lvt"
+			returnVal = 0.2
+		Case true
+			returnVal = 0.2
+	End Select
+	CoDiff = returnVal
+End Function
+
+Function DiffWidth(m)
+	Select Case m
+		Case "nch"
+			returnVal = 0.2
+		Case "pch"
+			returnVal = 0.2
+		Case "nch_lvt"
+			returnVal = 0.2
+		Case "nch_hvt"
+			returnVal = 0.2
+		Case "nch_25"
+			returnVal = 0.31
+		Case "pch_25"
+			returnVal = 0.31
+		Case "pch_lvt"
+			returnVal = 0.2
+		Case true
+			returnVal = 0.2
+	End Select
+	DiffWidth = returnVal
+End Function
+
+
+Function ImpbPP(m)
+	Select Case m
+		Case "nch"
+			returnVal = true
+		Case "pch"
+			returnVal = false
+		Case "nch_lvt"
+			returnVal = true
+		Case "nch_hvt"
+			returnVal = true
+		Case "nch_25"
+			returnVal = true
+		Case "pch_25"
+			returnVal = false
+		Case "pch_lvt"
+			returnVal = false
+		Case true
+			returnVal = true
+	End Select
+	ImpbPP = returnVal
+End Function
+
+Function MOSYSpacing(m)
+	Select Case m
+		Case "nch"
+			returnVal = 0.68
+		Case "pch"
+			returnVal = 0.68
+		Case "nch_lvt"
+			returnVal = 0.68
+		Case "nch_hvt"
+			returnVal = 0.68
+		Case "nch_25"
+			returnVal = 0.31
+		Case "pch_lvt"
+			returnVal = 0.68
+		Case true
+			returnVal = 0.2
+	End Select
+	MOSYSpacing = returnVal
+End Function
+
+Function OriginOffset(m)
+	Select Case m
+		Case "nch"
+			returnVal = 0.1
+		Case "pch"
+			returnVal = 0.1
+		Case "nch_lvt"
+			returnVal = 0.1
+		Case "nch_hvt"
+			returnVal = 0.1
+		Case "nch_25"
+			returnVal = 0.155
+		Case "pch_lvt"
+			returnVal = 0.1
+		Case true
+			returnVal = 0.1
+	End Select
+	OriginOffset = returnVal
+End Function
+
+Function MinMetWidth(m)
+	Select Case m
+		Case 0
+			returnVal = 0.09
+		Case 1, 2, 3, 4, 5, 6, 7
+			returnVal = 0.1
+		Case 8, 9
+			returnVal = 2.0
+		Case true
+			returnVal = 3.0
+	End Select
+	MinMetWidth = returnVal
+End Function
+
+Function ViaSpacingVec(m)
+	Select Case m
+		Case (-1)
+			returnVal = 0.14
+		Case 0, 1, 2, 3, 4, 5
+			returnVal = 0.13
+		Case 6, 7
+			returnVal = 0.54
+		Case true
+			returnVal = 3.0
+	End Select
+	ViaSpacingVec = returnVal
+End Function
+
+Function MetSpacingVec(m)
+	Select Case m
+		Case 1
+			returnVal = 0.09
+		Case 2, 3, 4, 5, 6, 7
+			returnVal = 0.1
+		Case 8, 9
+			returnVal = 0.54
+		Case true
+			returnVal = 3.0
+	End Select
+	MetSpacingVec = returnVal
+End Function
+
+Function ViaOneRowSpacingVec(m)
+	Select Case m
+		Case (-1)
+			returnVal = 0.11
+		Case 0, 1, 2, 3, 4, 5
+			returnVal = 0.1
+		Case 6, 7
+			returnVal = 0.34
+		Case true
+			returnVal = 3.0
+	End Select
+	ViaOneRowSpacingVec = returnVal
+End Function
+
+Function ViaEncVec(m)
+	Select Case m
+		Case (-1), 0, 1, 2, 3, 4, 5
+			returnVal = 0.04
+		Case 6
+			returnVal = 0.08
+		Case 7
+			returnVal = 0.3
+		Case true
+			returnVal = 1.5
+	End Select
+	ViaEncVec = returnVal
+End Function
+
+Function ViaMinEncWidthVec(m, bIsLast)
+
+	If (bIsLast) Then
+		Select Case m
+			Case 0
+				returnVal = 0.1
+			Case 1, 2, 3, 4, 5, 6
+				returnVal = 0.1
+			Case 7
+				returnVal = 0.4
+			Case 8
+				returnVal = 2.0
+			Case true
+				returnVal = 4.5
+		End Select
+	Else
+		Select Case m
+			Case 0
+				returnVal = 0.1
+			Case 1, 2, 3, 4, 5
+				returnVal = 0.1
+			Case 6, 7
+				returnVal = 0.4
+			Case 7
+				returnVal = 0.4
+			Case true
+				returnVal = 4.5
+		End Select
+	End If
+
+	ViaMinEncWidthVec = returnVal
+End Function
+
+Function ViaDiagonalEncVec(m)
+	Select Case m
+		Case 0, 1, 2, 3, 4, 5
+			returnVal = 0.06
+		Case 6
+			returnVal = 0.115
+		Case 7
+			returnVal = 0.45
+		Case true
+			returnVal = 2.12
+	End Select
+	ViaDiagonalEncVec = returnVal
+End Function
+
+>>
+print_DIE(originX, originY, Width, Length, priority)::=<<
+
+rfvlsi_print_DIE=True
+CDielectric "Substrate", 11.9, 1, 10.0, <originX>, <originY>, -250000.0, <Width>, <Length>, 250000.0, <priority>
+CDielectric "FOX", 3.28174467495264, 1, 0.0, <originX>, <originY>, 0.0, <Width>, <Length>, 3140.0, <priority>
+CDielectric "IMD_7c", 4.491322366879034, 1, 0.0, <originX>, <originY>, 3140.0, <Width>, <Length>, 7435.0, <priority>
+oProject.Save
+
+
+>>print_DefineAllMetals()::=<<
+DefineNewMetal "PO",625000.0
+rfvlsi_totoal_PO_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "CO",160680.52930056708
+rfvlsi_totoal_CO_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "METAL1",3.4722222222222224E7
+rfvlsi_totoal_METAL1_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "Via1",2205419.0296156267
+rfvlsi_totoal_Via1_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "METAL2",3.2467532467532463E7
+rfvlsi_totoal_METAL2_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "Via2",2205419.0296156267
+rfvlsi_totoal_Via2_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "METAL3",3.2467532467532463E7
+rfvlsi_totoal_METAL3_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "Via3",2205419.0296156267
+rfvlsi_totoal_Via3_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "METAL4",3.2467532467532463E7
+rfvlsi_totoal_METAL4_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "Via4",2205419.0296156267
+rfvlsi_totoal_Via4_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "METAL5",3.2467532467532463E7
+rfvlsi_totoal_METAL5_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "Via5",2205419.0296156267
+rfvlsi_totoal_Via5_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "METAL6",3.2467532467532463E7
+rfvlsi_totoal_METAL6_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "Via6",2205419.0296156267
+rfvlsi_totoal_Via6_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "METAL7",3.2467532467532463E7
+rfvlsi_totoal_METAL7_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "Via7",3338945.0056116725
+rfvlsi_totoal_Via7_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "METAL8",5.05050505050505E7
+rfvlsi_totoal_METAL8_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "Via8",2469135.8024691353
+rfvlsi_totoal_Via8_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "METAL9",5.88235294117647E7
+rfvlsi_totoal_METAL9_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "Via9",542005.4200542006
+rfvlsi_totoal_Via9_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+DefineNewMetal "METAL10",3.2840722495894913E7
+rfvlsi_totoal_METAL10_ModelerObjects=0   ' tracking totaly number of created modeler objects for post-merging.
+
+oProject.Save
+
+>>print_DefineMetalViaFunctions()::=<<
+Function MetalHeight(iLayer)
+	Select Case iLayer
+            Case -2	'PO
+                MetalHeight=0.32
+            Case 0	'METAL1
+                MetalHeight=0.59
+            Case 1	'METAL2
+                MetalHeight=0.945
+            Case 2	'METAL3
+                MetalHeight=1.34
+            Case 3	'METAL4
+                MetalHeight=1.735
+            Case 4	'METAL5
+                MetalHeight=2.13
+            Case 5	'METAL6
+                MetalHeight=2.525
+            Case 6	'METAL7
+                MetalHeight=2.92
+            Case 7	'METAL8
+                MetalHeight=3.735
+            Case 8	'METAL9
+                MetalHeight=5.375
+            Case 9	'METAL10
+                MetalHeight=9.575
+	End Select
+End Function
+
+Function ViaHeight(iLayer)
+	Select Case iLayer
+            Case -1	'CO
+                ViaHeight=0.42
+            Case 0	'Via1
+                ViaHeight=0.77
+            Case 1	'Via2
+                ViaHeight=1.165
+            Case 2	'Via3
+                ViaHeight=1.56
+            Case 3	'Via4
+                ViaHeight=1.955
+            Case 4	'Via5
+                ViaHeight=2.35
+            Case 5	'Via6
+                ViaHeight=2.745
+            Case 6	'Via7
+                ViaHeight=3.14
+            Case 7	'Via8
+                ViaHeight=4.635
+            Case 8	'Via9
+                ViaHeight=8.775
+	End Select
+End Function
+
+Function MetalThickness(iLayer)
+	Select Case iLayer
+            Case -2	'PO
+                MetalThickness=0.1
+            Case 0	'METAL1
+                MetalThickness=0.18
+            Case 1	'METAL2
+                MetalThickness=0.22
+            Case 2	'METAL3
+                MetalThickness=0.22
+            Case 3	'METAL4
+                MetalThickness=0.22
+            Case 4	'METAL5
+                MetalThickness=0.22
+            Case 5	'METAL6
+                MetalThickness=0.22
+            Case 6	'METAL7
+                MetalThickness=0.22
+            Case 7	'METAL8
+                MetalThickness=0.9
+            Case 8	'METAL9
+                MetalThickness=3.4
+            Case 9	'METAL10
+                MetalThickness=1.45
+	End Select
+End Function
+
+Function ViaThickness(iLayer)
+	Select Case iLayer
+            Case -1	'CO
+                ViaThickness=0.17
+            Case 0	'Via1
+                ViaThickness=0.175
+            Case 1	'Via2
+                ViaThickness=0.175
+            Case 2	'Via3
+                ViaThickness=0.175
+            Case 3	'Via4
+                ViaThickness=0.175
+            Case 4	'Via5
+                ViaThickness=0.175
+            Case 5	'Via6
+                ViaThickness=0.175
+            Case 6	'Via7
+                ViaThickness=0.595
+            Case 7	'Via8
+                ViaThickness=0.74
+            Case 8	'Via9
+                ViaThickness=0.8
+	End Select
+End Function
+
+Function MetalMaterial(iLayer)
+	Select Case iLayer
+            Case -2	'PO
+                MetalMaterial="PO"
+            Case 0	'METAL1
+                MetalMaterial="METAL1"
+            Case 1	'METAL2
+                MetalMaterial="METAL2"
+            Case 2	'METAL3
+                MetalMaterial="METAL3"
+            Case 3	'METAL4
+                MetalMaterial="METAL4"
+            Case 4	'METAL5
+                MetalMaterial="METAL5"
+            Case 5	'METAL6
+                MetalMaterial="METAL6"
+            Case 6	'METAL7
+                MetalMaterial="METAL7"
+            Case 7	'METAL8
+                MetalMaterial="METAL8"
+            Case 8	'METAL9
+                MetalMaterial="METAL9"
+            Case 9	'METAL10
+                MetalMaterial="METAL10"
+	End Select
+End Function
+
+Function ViaMaterial(iLayer)
+	Select Case iLayer
+            Case -1	'CO
+                ViaMaterial="CO"
+            Case 0	'Via1
+                ViaMaterial="Via1"
+            Case 1	'Via2
+                ViaMaterial="Via2"
+            Case 2	'Via3
+                ViaMaterial="Via3"
+            Case 3	'Via4
+                ViaMaterial="Via4"
+            Case 4	'Via5
+                ViaMaterial="Via5"
+            Case 5	'Via6
+                ViaMaterial="Via6"
+            Case 6	'Via7
+                ViaMaterial="Via7"
+            Case 7	'Via8
+                ViaMaterial="Via8"
+            Case 8	'Via9
+                ViaMaterial="Via9"
+	End Select
+End Function
+
+Function MetalName(iLayer)
+	Select Case iLayer
+            Case -2	'PO
+                MetalName="PO"
+            Case 0	'METAL1
+                MetalName="METAL1"
+            Case 1	'METAL2
+                MetalName="METAL2"
+            Case 2	'METAL3
+                MetalName="METAL3"
+            Case 3	'METAL4
+                MetalName="METAL4"
+            Case 4	'METAL5
+                MetalName="METAL5"
+            Case 5	'METAL6
+                MetalName="METAL6"
+            Case 6	'METAL7
+                MetalName="METAL7"
+            Case 7	'METAL8
+                MetalName="METAL8"
+            Case 8	'METAL9
+                MetalName="METAL9"
+            Case 9	'METAL10
+                MetalName="METAL10"
+	End Select
+End Function
+
+Function ViaName(iLayer)
+	Select Case iLayer
+            Case -1	'CO
+                ViaName="CO"
+            Case 0	'Via1
+                ViaName="Via1"
+            Case 1	'Via2
+                ViaName="Via2"
+            Case 2	'Via3
+                ViaName="Via3"
+            Case 3	'Via4
+                ViaName="Via4"
+            Case 4	'Via5
+                ViaName="Via5"
+            Case 5	'Via6
+                ViaName="Via6"
+            Case 6	'Via7
+                ViaName="Via7"
+            Case 7	'Via8
+                ViaName="Via8"
+            Case 8	'Via9
+                ViaName="Via9"
+	End Select
+End Function
+
+Sub MetalCountPlusOne(iLayer)
+	Select Case iLayer
+            Case -2	'PO
+                rfvlsi_totoal_PO_ModelerObjects=rfvlsi_totoal_PO_ModelerObjects+1
+            Case 0	'METAL1
+                rfvlsi_totoal_METAL1_ModelerObjects=rfvlsi_totoal_METAL1_ModelerObjects+1
+            Case 1	'METAL2
+                rfvlsi_totoal_METAL2_ModelerObjects=rfvlsi_totoal_METAL2_ModelerObjects+1
+            Case 2	'METAL3
+                rfvlsi_totoal_METAL3_ModelerObjects=rfvlsi_totoal_METAL3_ModelerObjects+1
+            Case 3	'METAL4
+                rfvlsi_totoal_METAL4_ModelerObjects=rfvlsi_totoal_METAL4_ModelerObjects+1
+            Case 4	'METAL5
+                rfvlsi_totoal_METAL5_ModelerObjects=rfvlsi_totoal_METAL5_ModelerObjects+1
+            Case 5	'METAL6
+                rfvlsi_totoal_METAL6_ModelerObjects=rfvlsi_totoal_METAL6_ModelerObjects+1
+            Case 6	'METAL7
+                rfvlsi_totoal_METAL7_ModelerObjects=rfvlsi_totoal_METAL7_ModelerObjects+1
+            Case 7	'METAL8
+                rfvlsi_totoal_METAL8_ModelerObjects=rfvlsi_totoal_METAL8_ModelerObjects+1
+            Case 8	'METAL9
+                rfvlsi_totoal_METAL9_ModelerObjects=rfvlsi_totoal_METAL9_ModelerObjects+1
+            Case 9	'METAL10
+                rfvlsi_totoal_METAL10_ModelerObjects=rfvlsi_totoal_METAL10_ModelerObjects+1
+	End Select
+End Sub
+
+Sub ViaCountPlusOne(iLayer)
+	Select Case iLayer
+            Case -1	'CO
+                rfvlsi_totoal_CO_ModelerObjects=rfvlsi_totoal_CO_ModelerObjects+1
+            Case 0	'Via1
+                rfvlsi_totoal_Via1_ModelerObjects=rfvlsi_totoal_Via1_ModelerObjects+1
+            Case 1	'Via2
+                rfvlsi_totoal_Via2_ModelerObjects=rfvlsi_totoal_Via2_ModelerObjects+1
+            Case 2	'Via3
+                rfvlsi_totoal_Via3_ModelerObjects=rfvlsi_totoal_Via3_ModelerObjects+1
+            Case 3	'Via4
+                rfvlsi_totoal_Via4_ModelerObjects=rfvlsi_totoal_Via4_ModelerObjects+1
+            Case 4	'Via5
+                rfvlsi_totoal_Via5_ModelerObjects=rfvlsi_totoal_Via5_ModelerObjects+1
+            Case 5	'Via6
+                rfvlsi_totoal_Via6_ModelerObjects=rfvlsi_totoal_Via6_ModelerObjects+1
+            Case 6	'Via7
+                rfvlsi_totoal_Via7_ModelerObjects=rfvlsi_totoal_Via7_ModelerObjects+1
+            Case 7	'Via8
+                rfvlsi_totoal_Via8_ModelerObjects=rfvlsi_totoal_Via8_ModelerObjects+1
+            Case 8	'Via9
+                rfvlsi_totoal_Via9_ModelerObjects=rfvlsi_totoal_Via9_ModelerObjects+1
+	End Select
+End Sub
+>>
+print_metal_merge()::=<<
+'Merging metals & Vias
+If (rfvlsi_totoal_PO_ModelerObjects>=2) Then' If there are more than two objects of PO , we merge them.
+    A = oEditor.GetMatchedObjectName("PO*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_CO_ModelerObjects>=2) Then' If there are more than two objects of CO , we merge them.
+    A = oEditor.GetMatchedObjectName("CO*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_METAL1_ModelerObjects>=2) Then' If there are more than two objects of METAL1 , we merge them.
+    A = oEditor.GetMatchedObjectName("METAL1*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_Via1_ModelerObjects>=2) Then' If there are more than two objects of Via1 , we merge them.
+    A = oEditor.GetMatchedObjectName("Via1*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_METAL2_ModelerObjects>=2) Then' If there are more than two objects of METAL2 , we merge them.
+    A = oEditor.GetMatchedObjectName("METAL2*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_Via2_ModelerObjects>=2) Then' If there are more than two objects of Via2 , we merge them.
+    A = oEditor.GetMatchedObjectName("Via2*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_METAL3_ModelerObjects>=2) Then' If there are more than two objects of METAL3 , we merge them.
+    A = oEditor.GetMatchedObjectName("METAL3*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_Via3_ModelerObjects>=2) Then' If there are more than two objects of Via3 , we merge them.
+    A = oEditor.GetMatchedObjectName("Via3*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_METAL4_ModelerObjects>=2) Then' If there are more than two objects of METAL4 , we merge them.
+    A = oEditor.GetMatchedObjectName("METAL4*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_Via4_ModelerObjects>=2) Then' If there are more than two objects of Via4 , we merge them.
+    A = oEditor.GetMatchedObjectName("Via4*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_METAL5_ModelerObjects>=2) Then' If there are more than two objects of METAL5 , we merge them.
+    A = oEditor.GetMatchedObjectName("METAL5*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_Via5_ModelerObjects>=2) Then' If there are more than two objects of Via5 , we merge them.
+    A = oEditor.GetMatchedObjectName("Via5*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_METAL6_ModelerObjects>=2) Then' If there are more than two objects of METAL6 , we merge them.
+    A = oEditor.GetMatchedObjectName("METAL6*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_Via6_ModelerObjects>=2) Then' If there are more than two objects of Via6 , we merge them.
+    A = oEditor.GetMatchedObjectName("Via6*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_METAL7_ModelerObjects>=2) Then' If there are more than two objects of METAL7 , we merge them.
+    A = oEditor.GetMatchedObjectName("METAL7*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_Via7_ModelerObjects>=2) Then' If there are more than two objects of Via7 , we merge them.
+    A = oEditor.GetMatchedObjectName("Via7*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_METAL8_ModelerObjects>=2) Then' If there are more than two objects of METAL8 , we merge them.
+    A = oEditor.GetMatchedObjectName("METAL8*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_Via8_ModelerObjects>=2) Then' If there are more than two objects of Via8 , we merge them.
+    A = oEditor.GetMatchedObjectName("Via8*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_METAL9_ModelerObjects>=2) Then' If there are more than two objects of METAL9 , we merge them.
+    A = oEditor.GetMatchedObjectName("METAL9*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_Via9_ModelerObjects>=2) Then' If there are more than two objects of Via9 , we merge them.
+    A = oEditor.GetMatchedObjectName("Via9*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+If (rfvlsi_totoal_METAL10_ModelerObjects>=2) Then' If there are more than two objects of METAL10 , we merge them.
+    A = oEditor.GetMatchedObjectName("METAL10*")
+    oEditor.Unite Array("NAME:Selections", "Selections:=",  Join(A,",")), Array("NAME:UniteParameters", "KeepOriginals:=",  false)
+End If
+
+oProject.Save
+
+>>
+print_tooling()::=<<
+
+If (rfvlsi_print_DIE) Then
+    'Substract Vias/Metals from Deielectric
+    If (rfvlsi_totoal_PO_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("PO*")
+    End If    
+
+    If (rfvlsi_totoal_CO_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("CO*")
+    End If    
+
+    If (rfvlsi_totoal_METAL1_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("METAL1*")
+    End If    
+
+    If (rfvlsi_totoal_Via1_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("Via1*")
+    End If    
+
+    If (rfvlsi_totoal_METAL2_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("METAL2*")
+    End If    
+
+    If (rfvlsi_totoal_Via2_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("Via2*")
+    End If    
+
+    If (rfvlsi_totoal_METAL3_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("METAL3*")
+    End If    
+
+    If (rfvlsi_totoal_Via3_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("Via3*")
+    End If    
+
+    If (rfvlsi_totoal_METAL4_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("METAL4*")
+    End If    
+
+    If (rfvlsi_totoal_Via4_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("Via4*")
+    End If    
+
+    If (rfvlsi_totoal_METAL5_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("METAL5*")
+    End If    
+
+    If (rfvlsi_totoal_Via5_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("Via5*")
+    End If    
+
+    If (rfvlsi_totoal_METAL6_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("METAL6*")
+    End If    
+
+    If (rfvlsi_totoal_Via6_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("Via6*")
+    End If    
+
+    If (rfvlsi_totoal_METAL7_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("METAL7*")
+        oEditor.Subtract Array("NAME:Selections", "Blank Parts:=", "FOX", "Tool Parts:=", Join(A,",")), Array("NAME:SubtractParameters", "KeepOriginals:=", true)
+        oEditor.Subtract Array("NAME:Selections", "Blank Parts:=", "IMD_7c", "Tool Parts:=", Join(A,",")), Array("NAME:SubtractParameters", "KeepOriginals:=", true)
+    End If    
+
+    If (rfvlsi_totoal_Via7_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("Via7*")
+        oEditor.Subtract Array("NAME:Selections", "Blank Parts:=", "FOX", "Tool Parts:=", Join(A,",")), Array("NAME:SubtractParameters", "KeepOriginals:=", true)
+        oEditor.Subtract Array("NAME:Selections", "Blank Parts:=", "IMD_7c", "Tool Parts:=", Join(A,",")), Array("NAME:SubtractParameters", "KeepOriginals:=", true)
+    End If    
+
+    If (rfvlsi_totoal_METAL8_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("METAL8*")
+    End If    
+
+    If (rfvlsi_totoal_Via8_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("Via8*")
+    End If    
+
+    If (rfvlsi_totoal_METAL9_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("METAL9*")
+    End If    
+
+    If (rfvlsi_totoal_Via9_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("Via9*")
+    End If    
+
+    If (rfvlsi_totoal_METAL10_ModelerObjects>=1) Then
+        A = oEditor.GetMatchedObjectName("METAL10*")
+        oEditor.Subtract Array("NAME:Selections", "Blank Parts:=", "IMD_7c", "Tool Parts:=", Join(A,",")), Array("NAME:SubtractParameters", "KeepOriginals:=", true)
+    End If    
+    oProject.Save
+End If
+
+>>
+

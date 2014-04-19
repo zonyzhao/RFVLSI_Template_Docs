@@ -1,0 +1,112 @@
+$begin '$base_index$'
+  $begin 'properties'
+    all_levels=000000000000
+    time(year=000000002013, month=000000000003, day=000000000028, hour=000000000015, min=000000000037, sec=000000000012)
+    version=000000000000
+  $end 'properties'
+  $begin '$base_index$'
+    $index$(pos=000000002473, lin=000000000091, lvl=000000000000)
+  $end '$base_index$'
+$end '$base_index$'
+$begin 'SolutionBlock1'
+	ProductName=''
+	CircuitName='xfm_highk'
+	VersionID=243
+	PostProcess=false
+	LossLess=true
+	NextUniqueID=275
+	MoveBackwards=false
+	$begin 'VariationIDs'
+		Map(V='', ID=248)
+	$end 'VariationIDs'
+	$begin 'LinkedDataList'
+	$end 'LinkedDataList'
+	$begin 'MI'
+	$end 'MI'
+$end 'SolutionBlock1'
+$begin 'BlockMapName'
+	FileHeader='SolutionBlock1'
+	'SolutionKey(SimSetup=245, Instance=\'SetupDefinition\', Solution=-1, VersionID=0)'='SolutionBlock2'
+	'SolutionKey(SimSetup=245, Instance=\'SolutionDefinition\', Solution=246, VersionID=0)'='SolutionBlock3'
+	'SolutionKey(SimSetup=245, Instance=\'SolutionDefinition\', Solution=247, VersionID=0)'='SolutionBlock4'
+	'SolutionKey(SimSetup=245, Instance=\'SolutionDefinition\', Solution=251, VersionID=0)'='SolutionBlock5'
+$end 'BlockMapName'
+$begin 'SolutionBlock2'
+	SimSetupID=245
+	SimSetupName='SP_Sim'
+	VersionID=0
+	IsImported=false
+	IsTable=false
+	SolveSetupID=0
+	$begin 'MI'
+	$end 'MI'
+$end 'SolutionBlock2'
+$begin 'SolutionBlock3'
+	SolutionName='AdaptivePass'
+	SolutionID=246
+	V=0
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(50000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+	KeepAllFastSweepFields=false
+$end 'SolutionBlock3'
+$begin 'SolutionBlock4'
+	SolutionName='LastAdaptive'
+	SolutionID=247
+	V=0
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(50000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+	KeepAllFastSweepFields=false
+$end 'SolutionBlock4'
+$begin 'SolutionBlock5'
+	SolutionName='SP_Sim_Sweep'
+	SolutionID=251
+	V=0
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=true
+		SweepDefType='LIN'
+		StartFreq=1000000000
+		StopFreq=60000000000
+		StepSize=100000000
+		SolutionType=5
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=0
+	KeepAllFastSweepFields=false
+$end 'SolutionBlock5'
+$begin '$index$'
+	$begin '$index$'
+		SolutionBlock3(pos=1343, lin=34, lvl=0)
+		SolutionBlock4(pos=1700, lin=52, lvl=0)
+		SolutionBlock5(pos=2057, lin=70, lvl=0)
+		BlockMapName(pos=681, lin=17, lvl=0)
+		SolutionBlock2(pos=1172, lin=24, lvl=0)
+		SolutionBlock1(pos=370, lin=1, lvl=0)
+		$base_index$(pos=0, lin=1, lvl=0)
+		$index$(pos=2473, lin=91, lvl=0)
+	$end '$index$'
+$end '$index$'
