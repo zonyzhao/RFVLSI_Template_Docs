@@ -214,20 +214,6 @@ Function OriginOffset(m)
 	OriginOffset = returnVal
 End Function
 
-Function ViaWidthVec(m)
-	Select Case m
-		Case (1)
-			returnVal = 0.09
-		Case 0, 1, 2, 3, 4, 5
-			returnVal = 0.1
-		Case 6, 7
-			returnVal = 0.36
-		Case true
-			returnVal = 3.0
-	End Select
-	ViaWidthVec = returnVal
-End Function
-
 Function MinMetWidth(m)
 	Select Case m
 		Case 0
@@ -244,7 +230,7 @@ End Function
 
 Function ViaSpacingVec(m)
 	Select Case m
-		Case (1)
+		Case (-1)
 			returnVal = 0.14
 		Case 0, 1, 2, 3, 4, 5
 			returnVal = 0.13
@@ -272,7 +258,7 @@ End Function
 
 Function ViaOneRowSpacingVec(m)
 	Select Case m
-		Case (1)
+		Case (-1)
 			returnVal = 0.11
 		Case 0, 1, 2, 3, 4, 5
 			returnVal = 0.1
@@ -286,7 +272,7 @@ End Function
 
 Function ViaEncVec(m)
 	Select Case m
-		Case (1), 0, 1, 2, 3, 4, 5
+		Case (-1), 0, 1, 2, 3, 4, 5
 			returnVal = 0.04
 		Case 6
 			returnVal = 0.08
@@ -349,10 +335,9 @@ End Function
 print_DIE(originX, originY, Width, Length, priority)::=<<
 
 rfvlsi_print_DIE=True
-CDielectric "Substrate", 11.9, 10.0, 0.02, <originX>, <originY>, -250000.0, <Width>, <Length>, 250000.0, <priority>
-CDielectric "FOX", 3.28174467495264, 0.0, 0.02, <originX>, <originY>, 0.0, <Width>, <Length>, 3140.0, <priority>
-CDielectric "IMD_7c", 4.491322366879034, 0.0, 0.02, <originX>, <originY>, 3140.0, <Width>, <Length>, 7435.0, <priority>
-
+CDielectric "Substrate", 11.9, 1, 10.0, <originX>, <originY>, -250000.0, <Width>, <Length>, 250000.0, <priority>
+CDielectric "FOX", 3.28174467495264, 1, 0.0, <originX>, <originY>, 0.0, <Width>, <Length>, 3140.0, <priority>
+CDielectric "IMD_7c", 4.491322366879034, 1, 0.0, <originX>, <originY>, 3140.0, <Width>, <Length>, 7435.0, <priority>
 oProject.Save
 
 
