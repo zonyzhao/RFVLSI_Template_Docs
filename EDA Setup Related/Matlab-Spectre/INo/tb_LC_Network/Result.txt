@@ -1,0 +1,10 @@
+XMIN = 1.038422 
+
+XMIN = 2.505551 
+
+FMIN = 0.000000 
+
+COUNTEVAL = 122.000000 
+
+Computation Time = 1.808238e+03 
+

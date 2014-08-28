@@ -1,0 +1,6 @@
+XMIN = 1.026125 
+
+XMIN = 2.498764 
+
+Computation Time = 2.141023e+02 
+
