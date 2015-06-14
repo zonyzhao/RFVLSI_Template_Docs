@@ -3,10 +3,31 @@
 <feature
       id="org.rfvlsi.rfskill.site"
       label="org.rfvlsi.rfskill.site Feature"
-      version="1.0.0.201506141913-1--cLFf7-312617252_24">
+      version="1.0.0.201506150101-1--cLFf7-312617261212">
 
    <includes
          id="org.rfvlsi.rfskill.sdk"
-         version="1.0.0.201506141913"/>
+         version="1.0.0.201506150101"/>
+
+   <plugin
+         id="org.rfvlsi.rfskill.ui"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.201506141913"
+         unpack="false"/>
+
+   <plugin
+         id="org.rfvlsi.rfskill"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.201506141913"
+         unpack="false"/>
+
+   <plugin
+         id="org.rfvlsi.rfskill.tests"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.201506150101"
+         unpack="false"/>
 
 </feature>
