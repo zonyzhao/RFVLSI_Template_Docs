@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.rfvlsi.rfskill.sdk.source"
+      label="Source for Language SDK Feature "
+      version="1.0.0.201506141913">
+
+   <plugin
+         id="org.rfvlsi.rfskill.source"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.201506141913"
+         unpack="false"/>
+
+   <plugin
+         id="org.rfvlsi.rfskill.ui.source"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.201506141913"
+         unpack="false"/>
+
+</feature>

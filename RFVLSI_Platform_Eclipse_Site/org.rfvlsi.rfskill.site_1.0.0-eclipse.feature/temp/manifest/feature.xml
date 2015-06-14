@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- contextQualifierLength=12 -->
+<feature
+      id="org.rfvlsi.rfskill.site"
+      label="org.rfvlsi.rfskill.site Feature"
+      version="1.0.0.201506141913-1--cLFf7-312617252_24">
+
+   <includes
+         id="org.rfvlsi.rfskill.sdk"
+         version="1.0.0.201506141913"/>
+
+</feature>

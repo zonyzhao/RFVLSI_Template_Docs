@@ -1,0 +1,55 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: org.rfvlsi.rfskill; singleton:=true
+Export-Package: org.rfvlsi.rfskill;uses:="com.google.inject,org.eclips
+ e.xtext.common.types,org.eclipse.xtext",org.rfvlsi.rfskill.Util,org.r
+ fvlsi.rfskill.formatting; uses:="org.eclipse.xtext.nodemodel,  org.ec
+ lipse.xtext.parsetree.reconstr,  org.eclipse.xtext.util,  org.eclipse
+ .xtext,  org.eclipse.xtext.formatting.impl",org.rfvlsi.rfskill.genera
+ tor;uses:="org.eclipse.xtext.generator",org.rfvlsi.rfskill.language;u
+ ses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util",org.rfvlsi.r
+ fskill.language.impl; uses:="org.eclipse.emf.ecore,  org.eclipse.emf.
+ ecore.impl,  org.eclipse.emf.common.util,  org.rfvlsi.rfskill.languag
+ e,  org.eclipse.emf.common.notify",org.rfvlsi.rfskill.language.util; 
+ uses:="org.eclipse.emf.ecore,  org.rfvlsi.rfskill.language,  org.ecli
+ pse.emf.common.notify,  org.eclipse.emf.common.notify.impl,  org.ecli
+ pse.emf.ecore.util",org.rfvlsi.rfskill.model.NodeAnnotation;uses:="or
+ g.stringtemplate.v4",org.rfvlsi.rfskill.models.simulation;uses:="org.
+ stringtemplate.v4",org.rfvlsi.rfskill.parser.antlr;uses:="org.eclipse
+ .xtext.parser.antlr,org.rfvlsi.rfskill.parser.antlr.internal,org.rfvl
+ si.rfskill.services",org.rfvlsi.rfskill.parser.antlr.internal; uses:=
+ "org.eclipse.emf.ecore,  org.eclipse.xtext.parser.antlr,  org.rfvlsi.
+ rfskill.services,  org.antlr.runtime",org.rfvlsi.rfskill.scoping,org.
+ rfvlsi.rfskill.serializer; uses:="org.eclipse.emf.ecore,  org.eclipse
+ .xtext.nodemodel,  org.eclipse.xtext.serializer.analysis,  org.rfvlsi
+ .rfskill.language,  org.rfvlsi.rfskill.services,  org.eclipse.xtext.s
+ erializer.sequencer,  org.eclipse.xtext",org.rfvlsi.rfskill.services;
+ uses:="org.eclipse.xtext.service,org.eclipse.xtext",org.rfvlsi.rfskil
+ l.validation;uses:="org.eclipse.xtext.validation",org.rfvlsi.rfskill.
+ valueconverter,org.rfvlsi.rfskill.preferences
+Bundle-Name: org.rfvlsi.rfskill
+Bundle-Version: 1.0.0.201506141913
+Bundle-ClassPath: antlr-4.4-complete.jar,.
+Require-Bundle: org.eclipse.xtext;visibility:="reexport";bundle-versio
+ n="[2.8.0,3.0.0)",org.eclipse.xtext.xbase;resolution:="optional";visi
+ bility:="reexport";bundle-version="[2.8.0,3.0.0)",org.eclipse.xtext.g
+ enerator;resolution:="optional";bundle-version="[2.8.0,3.0.0)",org.ap
+ ache.commons.logging;bundle-version="1.0.4";resolution:="optional",or
+ g.eclipse.emf.codegen.ecore;resolution:="optional";bundle-version="[2
+ .11.0,3.0.0)",org.eclipse.emf.mwe.utils;resolution:="optional";bundle
+ -version="[1.3.0,2.0.0)",org.eclipse.emf.mwe2.launch;resolution:="opt
+ ional";bundle-version="[2.8.0,3.0.0)",org.eclipse.xtext.util;bundle-v
+ ersion="[2.8.0,3.0.0)",org.eclipse.emf.ecore;bundle-version="[2.11.0,
+ 3.0.0)",org.eclipse.emf.common;bundle-version="[2.11.0,3.0.0)",org.an
+ tlr.runtime;bundle-version="[3.2.0,4.0.0)",org.eclipse.xtext.common.t
+ ypes;bundle-version="[2.8.0,3.0.0)",org.objectweb.asm;bundle-version=
+ "[5.0.1,6.0.0)";resolution:="optional",org.eclipse.xtext.xbase.lib;bu
+ ndle-version="[2.8.0,3.0.0)",org.eclipse.xtext.builder;bundle-version
+ ="2.7.3",org.eclipse.core.runtime;bundle-version="3.10.0"
+Bundle-ManifestVersion: 2
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-Vendor: My Company
+Import-Package: org.apache.log4j,org.eclipse.xtext.ui.resource,org.ecl
+ ipse.xtext.ui.shared.contribution,org.eclipse.xtext.ui.shared.interna
+ l,org.eclipse.xtext.xbase.lib
+

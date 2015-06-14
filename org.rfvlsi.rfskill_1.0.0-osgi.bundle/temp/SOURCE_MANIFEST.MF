@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: org.rfvlsi.rfskill.source
+Bundle-Version: 1.0.0.201506141911
+Bundle-Name: org.rfvlsi.rfskill Source
+Bundle-ManifestVersion: 2
+Bundle-Vendor: My Company
+Eclipse-SourceBundle: org.rfvlsi.rfskill;version="1.0.0.201506141911";
+ roots="."
+
